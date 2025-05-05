@@ -1,4 +1,3 @@
-import { useRouter } from 'next/router'
 import { ImageContainer, ProductContainer, ProductDetails } from '../../styles/pages/product'
 import { GetStaticProps } from 'next'
 import { stripe } from '../../lib/stripe'
@@ -36,7 +35,7 @@ export const getStaticPaths = async () => {
         paths: [
             { params: { id: 'prod_SE5XKJcRlQ3GAA' } },
         ],
-        fallback: false
+        fallback: 'blocking'
     }
 }
 
