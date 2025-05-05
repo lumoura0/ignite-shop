@@ -22,13 +22,22 @@ export default function Product({ product }: ProductProps) {
                 <Image src={product.imageUrl} width={520} height={480} alt='' />
             </ImageContainer>
             <ProductDetails>
-                <h1>{product.id}</h1>
+                <h1>{product.name}</h1>
                 <span>{product.price}</span>
                 <p>{product.description}</p>
                 <button>Comprar agora</button>
             </ProductDetails>
         </ProductContainer>
     )
+}
+
+export const getStaticPaths = async () => {
+    return {
+        paths: [
+            { params: { id: 'prod_SE5XKJcRlQ3GAA' } },
+        ],
+        fallback: false
+    }
 }
 
 export const getStaticProps: GetStaticProps<any, { id: string }> = async ({ params }) => {
